@@ -34,7 +34,7 @@ if __name__ == "__main__":
         description="Benchmarks the built-in Python hash algorithms"
     )
     parser.add_argument(
-        "-n", default=NUM_ITERATIONS, help="number of iterations to run"
+        "-n", type=int, default=NUM_ITERATIONS, help="number of iterations to run"
     )
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("-f", "--file", help="name of file to hash")
@@ -48,4 +48,4 @@ if __name__ == "__main__":
     elif options.contents:
         contents = options.contents
 
-    main(contents=contents)
+    main(contents=contents, n=options.n)
