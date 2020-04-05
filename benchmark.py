@@ -23,7 +23,9 @@ def main(contents: bytes, n: int = NUM_ITERATIONS):
         try:
             time = t.timeit(number=n)
             print(
-                f"{n} iterations took {time:.4}s with an avg of {(time / n):.4e}s per loop"
+                f"{n} iterations took {time:.4}s with an avg of "
+                f"{time / n * 1000:.4}ms per loop and "
+                f"{len(contents) * n / time / 1024 / 1024:.2f}MB/s"
             )
         except Exception:
             t.print_exc()
