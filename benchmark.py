@@ -38,7 +38,7 @@ if __name__ == "__main__":
     )
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("-f", "--file", help="name of file to hash")
-    group.add_argument("-c", "--contents", help="contents to hash")
+    group.add_argument("-c", "--contents", type=bytes, help="contents to hash")
     options = parser.parse_args()
 
     contents: bytes = bytes()
